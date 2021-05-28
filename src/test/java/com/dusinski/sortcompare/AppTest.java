@@ -1,20 +1,36 @@
 package com.dusinski.sortcompare;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
+import com.dusinski.sortcompare.util.SortCompareUtil;
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
+import java.util.Arrays;
+
+
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
+
+//    @Test
+//    public void testCountSort(){
+//        SortCompareUtil sortCompareUtil = new SortCompareUtil(1000);
+//        int[] testArray =  sortCompareUtil.getUnsortedArray().clone();
+//        Arrays.sort(testArray);
+//        assertArrayEquals(testArray,sortCompareUtil.checkCountSort());
+//    }
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void testMergeSort(){
+        SortCompareUtil sortCompareUtil = new SortCompareUtil(1000);
+        int[] testArray =  sortCompareUtil.getUnsortedArray().clone();
+        Arrays.sort(testArray);
+        assertArrayEquals(testArray,sortCompareUtil.checkMergeSort());
     }
+    @Test
+    public void testQuickSort(){
+        SortCompareUtil sortCompareUtil = new SortCompareUtil(1000);
+        int[] testArray =  sortCompareUtil.getUnsortedArray().clone();
+        Arrays.sort(testArray);
+        assertArrayEquals(testArray,sortCompareUtil.checkQuickSort());
+    }
+
 }

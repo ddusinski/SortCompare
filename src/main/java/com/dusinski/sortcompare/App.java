@@ -9,7 +9,10 @@ public class App {
     public static void main(String[] args) {
 
         System.out.println("Sort Compare App");
-        SortCompareUtil sortCompareUtil = new SortCompareUtil(1000);
+        SortCompareUtil sortCompareUtil = new SortCompareUtil(10000000);
+//        sortCompareUtil.checkMergeSort();
+//        sortCompareUtil.checkCountSort();
+        sortCompareUtil.checkQuickSort();
         sortCompareUtil.checkMergeSort();
         sortCompareUtil.checkCountSort();
 

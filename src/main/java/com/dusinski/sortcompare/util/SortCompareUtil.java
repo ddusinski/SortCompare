@@ -2,18 +2,24 @@ package com.dusinski.sortcompare.util;
 
 import com.dusinski.sortcompare.sort.CountSort;
 import com.dusinski.sortcompare.sort.MergeSort;
+import com.dusinski.sortcompare.sort.QuickSort;
 import com.dusinski.sortcompare.sort.SortAlgorithm;
 import org.apache.commons.lang3.time.StopWatch;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class SortCompareUtil {
 
-    private final int[] testArr;
+    public final int[] testArr;
 
     public SortCompareUtil(int n) {
         this.testArr = getRandomArray(n);
+//        this.testArr = new int[]{-12, 23, 44, -14};
+//        this.testArr = new int[]{-12, 23, -44, 14};
+    }
+
+    public int[] getUnsortedArray() {
+        return this.testArr;
     }
 
     private int[] getRandomArray(int size) {
@@ -25,26 +31,33 @@ public class SortCompareUtil {
         return array;
     }
 
-    private void checkSort(SortAlgorithm sa) {
+    private int[] checkSort(SortAlgorithm sa) {
+        int[] test = testArr.clone();
         StopWatch sw = new StopWatch();
         sw.start();
 
         System.out.println(sa.getClass().getCanonicalName());
         System.out.println("heap size before: " + Runtime.getRuntime().totalMemory() / 1024 / 1024 + " MB");
-        System.out.println("before sort: " + Arrays.toString(testArr));
-        sa.sort(testArr);
-        System.out.println("after sort: " + Arrays.toString(testArr));
+//        System.out.println("before sort: " + Arrays.toString(test));
+        sa.sort(test);
+//        System.out.println("after sort: " + Arrays.toString(test));
         sw.stop();
         System.out.println("heap size after: " + Runtime.getRuntime().totalMemory() / 1024 / 1024 + " MB");
         System.out.println("Nano-time Elapsed: " + sw.getTime());
+        return test;
     }
 
-    public void checkMergeSort() {
-        checkSort(new MergeSort());
+    public int[] checkMergeSort() {
+        return checkSort(new MergeSort());
+
     }
 
-    public void checkCountSort() {
-        checkSort(new CountSort());
+    public int[] checkCountSort() {
+        return checkSort(new CountSort());
+    }
+
+    public int[] checkQuickSort() {
+        return checkSort(new QuickSort());
     }
 
 }

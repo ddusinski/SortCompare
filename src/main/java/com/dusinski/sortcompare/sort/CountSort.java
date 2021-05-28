@@ -22,8 +22,8 @@ public class CountSort implements SortAlgorithm {
 
     private void countSort(int[] inputArray) {
         findMinMaxElement(inputArray);
-        System.out.println("min element: "+minElement);
-        System.out.println("max element: "+maxElement);
+//        System.out.println("min element: "+minElement);
+//        System.out.println("max element: "+maxElement);
         byte[] histogramArrayNegativePart = new byte[Math.abs(minElement) + 1];
         byte[] histogramArrayPositivePart = new byte[maxElement + 1];
 
