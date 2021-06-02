@@ -1,9 +1,6 @@
 package com.dusinski.sortcompare.util;
 
-import com.dusinski.sortcompare.sort.CountSort;
-import com.dusinski.sortcompare.sort.MergeSort;
-import com.dusinski.sortcompare.sort.QuickSort;
-import com.dusinski.sortcompare.sort.SortAlgorithm;
+import com.dusinski.sortcompare.sort.*;
 import org.apache.commons.lang3.time.StopWatch;
 
 import java.util.Random;
@@ -35,7 +32,6 @@ public class SortCompareUtil {
         int[] test = testArr.clone();
         StopWatch sw = new StopWatch();
         sw.start();
-
         System.out.println(sa.getClass().getCanonicalName());
         System.out.println("heap size before: " + Runtime.getRuntime().totalMemory() / 1024 / 1024 + " MB");
 //        System.out.println("before sort: " + Arrays.toString(test));
@@ -58,6 +54,9 @@ public class SortCompareUtil {
 
     public int[] checkQuickSort() {
         return checkSort(new QuickSort());
+    }
+    public int[] checkHeapArraySort() {
+        return checkSort(new HeapArraySort());
     }
 
 }

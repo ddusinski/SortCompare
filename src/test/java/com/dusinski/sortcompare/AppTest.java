@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 public class AppTest {
 
-    //    @Test
+//        @Test
 //    public void testCountSort(){
 //        SortCompareUtil sortCompareUtil = new SortCompareUtil(1000);
 //        int[] testArray =  sortCompareUtil.getUnsortedArray().clone();
@@ -35,6 +35,14 @@ public class AppTest {
         int[] testArray = sortCompareUtil.getUnsortedArray().clone();
         Arrays.sort(testArray);
         assertArrayEquals(testArray, sortCompareUtil.checkQuickSort());
+    }
+
+    @Test
+    public void testHeapArraySort() {
+        SortCompareUtil sortCompareUtil = new SortCompareUtil(1000);
+        int[] testArray = sortCompareUtil.getUnsortedArray().clone();
+        Arrays.sort(testArray);
+        assertArrayEquals(testArray, sortCompareUtil.checkHeapArraySort());
     }
 
     // sorting using compareTo inside Vehicle class - seatsCount is taken into account
